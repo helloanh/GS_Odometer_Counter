@@ -1,0 +1,18 @@
+body {
+	background: 	
+		/* top, transparent green faked with gradient */
+		linear-gradient(
+			rgba(32, 114, 32, 0.8), rgba(32, 114, 32, 0.8)),
+
+		/* bottom, background image */
+		url("benfrank-img.jpg");
+}
+
+.info-text {
+	color: #ffffff;
+	font-weight:400;
+}
+
+.odometer {
+    font-size: 8em;
+}
