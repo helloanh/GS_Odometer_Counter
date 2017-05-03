@@ -8,6 +8,10 @@ body {
 		url("benfrank-img.jpg");
 }
 
+.jumbotron h1 {
+    font-size: 2.5em;
+    text-align: center;
+}
 .info-text {
 	color: #ffffff;
 	font-weight:400;
@@ -16,7 +20,6 @@ body {
 .odometer {
     font-size: 8em;
 }
-
 .odometer .odometer-inside:before {
     content: "$";
     display: inline-block;
