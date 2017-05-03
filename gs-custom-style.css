@@ -16,3 +16,12 @@ body {
 .odometer {
     font-size: 8em;
 }
+
+.odometer .odometer-inside:before {
+    content: "$";
+    display: inline-block;
+    vertical-align: sup;
+    opacity: .6;
+    font-size: .5em;
+    margin-right: .12em;
+}
