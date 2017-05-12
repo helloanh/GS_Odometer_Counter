@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Since Trump took office, Goldman Sachs has stashed away an estimated $21 per second in unpaid taxes. This site shows the current tally in real time from June 20, 2016 to currently.">
+		<meta name="keywords" content="Center for American Progress, tax report,Goldman Sachs, tax, evasion">
+		<meta name="author" content="Center for American Progress">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Center for America Progress | Goldman Sachs Tax Counter</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="odometer-theme-train-station.css" />
+		<link rel="stylesheet" href="gs-custom-style.css" />
+	</head>
+	<body>
+
+		<div class="container">
+				<div class="row">
+					<div class="col-lg-10 col-lg-offset-1 page-header">
+		    		<p class="info-text">Since Trump took office, <span class="highlight-txt">Goldman Sachs</span> has stashed away an estimated <span class="highlight-txt-down">$21 per second</span> in unpaid taxes,* resulting in a current total of </h1>
+					</div>
+					<div class="row text-center">
+						<div class="col-lg-10 col-lg-offset-1">
+							<p id="amount-output" class="odometer text-center"></p>
+						</div>
+					<div class="row">
+						<div class="col-lg-10 col-lg-offset-1">
+							<p class="subh-text"> And yet, Trump wants to create <span class="highlight-txt">even more</span> special tax breaks for <br> wealthy corporations like Goldman. </h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-8 col-lg-offset-2 text-center">
+							<button type="gs-button" class="btn btn-default">JOIN THE RESISTANCE</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-8 col-lg-offset-2 text-center social-media-row">
+							<a href="#"><img src="img/s_tweet_button.png" style="width:80px;"></a>
+							<a href="#"><img src="img/fb_share.png" style="width:80px;"></a>
+						</div>
+					</div>
+
+				</div>
+		</div>
+
+		<footer class="footer navbar-fixed-bottom">
+			<p class="text-muted text-center"> * This number was calculated based on a 2017 <a href="#">report</a> by the Center for American Progress. </p>
+		</footer>
+
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="gs-odometer.js"></script>
+ 		<script>	    
+ 		    var $time_offset = -4;
+ 		    var $startTime = new Date(2016,05,20,12,00); // start time (Year,Month,Day,Hours,Minutes) ** Month begins from "00" (00 for January, 01 for February, etc..)
+ 		    var $endTime = new Date(2018,05,20,12,00); // Set end time (Year,Month,Day,Hours,Minutes) ** Month begins from "00" (00 for January, 01 for February, etc..)
+ 		    var $inc_amount = 21.00;
+ 
+		 		var $timeInt;
+		 		var $amt_elm = document.getElementById("amount-output");
+		 		$time_offset = $time_offset * -1;
+		 		var $currentTime = new Date();
+		 		var $client_offset = $currentTime.getTimezoneOffset();
+		 		$startTime = $startTime.getTime() + ($time_offset*60*60*1000);
+		 		$endTime = $endTime.getTime() + ($time_offset*60*60*1000);
+		 		$currentTime = $currentTime.getTime() + ($client_offset*60*1000);
+
+		 		var $od = new Odometer({
+		 		    el: $amt_elm,
+		 		    format: '(,ddd)'
+		 		});
+		 		var $od_inside = document.getElementsByClassName("odometer-inside")[0];
+		 		function update_amount(){
+		 		       $currentTime = new Date();
+		 		       $currentTime = $currentTime.getTime() + $client_offset*60*1000;    
+		 		if ($currentTime < $endTime) {
+		 		   var $timeDef = Math.round(($currentTime - $startTime) / 1000);
+		 		   var $amount = $inc_amount * $timeDef;
+		 		   $od.update($amount);
+		 		   $od_inside.innerHTML =  $od_inside.innerHTML+'<span class="odometer-formatting-mark odometer-radix-mark"></span>';
+		 		} else {
+		 		   var $timeDef = Math.round(($endTime - $startTime) / 1000);
+		 		   var $amount = $inc_amount * $timeDef;
+		 		   $od.update($amount);  
+		 		   clearInterval($timeInt);
+		 		   $od_inside.innerHTML =  $od_inside.innerHTML+'<span class="odometer-formatting-mark odometer-radix-mark">';
+		 		}
+		 		}
+
+		 		$timeInt = setInterval(update_amount, 1200);
+
+ 		</script>
+	</body>
+</html>
