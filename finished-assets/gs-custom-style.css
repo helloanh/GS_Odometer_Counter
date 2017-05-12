@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Overpass:400,600');
+@import url("https://fonts.googleapis.com/css?family=Economica");
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+    background: url("img/green-bg-overlay.jpg") no-repeat;
+    background-size: cover;
+    /* Margin bottom by footer height */
+    margin-bottom: 50px;
+}
+
+.container .text-muted {margin: 20px 0;}
+.page-header { border-bottom: 0px; margin-bottom: 0px;}
+.info-text, .subh-text {color: #ffffff; text-align: center; }
+.info-text { font-family: "Overpass", sans-serif; font-size: 2.0em; }
+
+.highlight-txt { 
+  color: #222;
+  -ms-transform: rotate(25deg); /* IE 9 */
+  -webkit-transform: rotate(25deg); /* Safari */
+  transform: rotate(25deg);
+  padding: 2px 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-txt:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -1%;
+    left: 0;
+    z-index: -1;
+    background: url("img/greenbox.png") 0 0 repeat;
+    -webkit-transform: rotate(-1deg);
+    -moz-transform: rotate(-1deg);
+    -ms-transform: rotate(-1deg);
+    -o-transform: rotate(-1deg);
+    transform: rotate(-1deg);
+}
+.highlight-txt-down { 
+  color: #222;
+  -ms-transform: rotate(20deg); /* IE 9 */
+  -webkit-transform: rotate(20deg); /* Safari */
+  transform: rotate(20deg);
+  padding: 1px 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-txt-down:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 1%;
+  left: 0;
+  z-index: -1;
+  background: url("img/greenbox.png") 0 0 repeat;
+  -webkit-transform: rotate(1deg);
+  -moz-transform: rotate(1deg);
+  -ms-transform: rotate(1deg);
+  -o-transform: rotate(1deg);
+  transform: rotate(1deg);
+}
+
+.subh-text { font-family: "Overpass", sans-serif; font-size: 1.8em; }
+.odometer { font-family: "Economica", sans-serif; font-size: 6.25em; }
+.odometer-value { color: #ccc; font-weight: 600;}
+.odometer-inside { padding-bottom: 0.25em; }
+
+.odometer .odometer-inside:before {
+  font-family: "Overpass", sans-serif;
+  content: "$";
+  display: inline-block;
+  vertical-align: sup;
+  opacity: 1;
+  font-size: 1.15em;
+  margin-right: .15em;
+  color: #222;
+  font-weight: 600;
+}
+
+.odometer .odometer-formatting-mark:before { margin: 2em; font-size:2em; }
+
+span.odometer-formatting-mark {
+  font-family: "Overpass", sans-serif;
+  color: #222;
+  font-weight: 600;
+}
+
+button.btn.btn-default {
+    font-family: "Overpass", sans-serif;
+    background-color: transparent;
+    border-color: #fff;
+    border: 3px solid #fff;
+    font-size: 1.65em;
+    padding: 0.6em 1.8em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    color: #fff;
+    font-weight: 600;
+}
+button.btn.btn-default:hover {
+  background-color: #A8C10D; 
+  color: #333;
+}
+
+.social-media-row {
+  padding: 1.15em 0 2.25em 0;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(255,255,255,0.6);
+  color: #333;
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+  .container .text-muted {margin: 10px; }
+  .info-text { font-size: 1.65em; }
+  .subh-text {
+    font-size: 1.65em;
+    margin: 10px 20px 20px 10px;
+  }
+  .odometer { font-size: 2.25em; }
+  button.btn.btn-default {
+      font-size: 1.2em;
+      padding: 0.7em 2.75em;
+      margin-top: 0.2em;
+      margin-bottom: 0.2em;
+  }
+}
